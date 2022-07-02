@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-$END$
+<div class="container-fluid text-center">
+    <form th:action="@{/logout}" method="post">
+        <p>
+            Bem-vindo <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+        </p>
+        <input type="submit" value="Logout">
+
+    </form>
+
+
+    <div>
+        <h2 >Manage Users</h2>
+    </div>
+    <div class="m-2">
+        <a class = "h3" th:href="@{/users/new}">adicionar novo usuario</a>
+
+    </div>
+    <div th:if="${message}" class="alert alert-success text-center">
+    [[${message}]]
+    </div>
+
+    <div class="container-fluid">
+
+        <table class="table table-striped table-bordered">
+           <thead class = "thead-dark">
+           <tr>
+               <th>id</th>
+               <th>E-mail</th>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Flag</th>
+               <th colspan="2"></th>
+           </tr>
+           </thead>
+            <tbody>
+            <th:block  th:each="user : ${listUsers}">
+                <tr>
+                    <td>[[${user.id}]]</td>
+                    <td>[[${user.email}]]</td>
+                    <td>[[${user.firstName}]]</td>
+                    <td>[[${user.lastName}]]</td>
+                    <td>[[${user.enabled}]]</td>
+                    <td><a class="h4 mr-3" th:href="@{'/users/edit/' +  ${user.id}}"/>editar</td>
+                    <td><a class="h4 mr-3" th:href="@{'/users/delete/' +  ${user.id}}"/>excluir</td>
+                </tr>
+
+            </th:block>
+
+            </tbody>
+
+
+        </table>
+
+    </div>
+</div>
+
 </body>
 </html>

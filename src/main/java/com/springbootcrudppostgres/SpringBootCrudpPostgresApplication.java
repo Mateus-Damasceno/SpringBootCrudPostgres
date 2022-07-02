@@ -1,4 +1,4 @@
-package com.example.springbootcrudppostgres;
+package com.springbootcrudppostgres;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

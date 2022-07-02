@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Welcome to my app</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
+<div  class="container-fluid text-center">
 
+
+    <h1> Bem vindo a minha aplicacao</h1>
+
+    <div class="m-2"></div>
+    <div class="list-group-flush">
+        <ul class="list-group-flush block-list">
+             <a class="h2" th:href="@{/users}">gerenciar usuarios</a>
+            <a class="h2" th:href="@{/users/new}">Novo Usuario</a>
+             <a class="h2" th:href="@{/Login}"> Login</a>
+
+        </ul>
+    </div>
+
+</div>
 </body>
 </html>
